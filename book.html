@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/PapaParse/papaparse.js"></script>
+<script type="text/javascript" src="js/bookquery.js"></script>
+<style>
+.table-b table {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 13.5px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.table-x table td{width:70}
+</style>
+
+</head>
+
+<body>
+<input type="text" name="bookname"  id="searched_content" title="书名" />
+<input type="submit" value="Go" class="button" title="gogogo" onclick="bquery()" />
+<div id="resTbl" class="table-b"></div>
+<script type="text/javascript">
+function bquery() {
+Papa.parse("https://wybaby.github.io/book/book.txt", {
+	download: true,
+	complete: function(results) {
+		console.log(results);
+        var searchname = trimStr(document.getElementById('searched_content').value);
+        var found = false;
+        var tblStr = "<table border='0'>";
+        for (var i=0; i<results.data.length; ++i) {
+            var b = results.data[i];
+            if (b.length<20) {
+                continue;
+            }
+//            console.log(b[3]);
+            if (b[3].indexOf(searchname)>=0) {
+                found = true;
+                tblStr += "<tr><td class='table-x'>" + "编号" + "</td><td>" + b[1] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "书名" + "</td><td>" + b[3] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "作者" + "</td><td>" + b[5] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "ISBN" + "</td><td>" + b[13] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "状态" + "</td><td>" + b[2] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "出版日期" + "</td><td>" + b[7] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "购买日期" + "</td><td>" + b[16] + "</td></tr>";
+                tblStr += "<tr><td class='table-x'>" + "阅读日期" + "</td><td>" + b[17] + "</td></tr>";
+                tblStr += "<tr><td>----------</td></tr>";
+            }
+        }
+        if (found==false) {
+            $("#resTbl").html("<p>没买过</p>");
+        } else {
+            $("#resTbl").html(tblStr);
+        }
+
+	}
+});
+
+}
+
+</script>
+
+<script type="text/javascript">
+function trimStr(str){return str.replace(/(^\s*)|(\s*$)/g,"");}
+</script>
+
+</body>
+</html>
