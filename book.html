@@ -17,8 +17,8 @@
 </head>
 
 <body>
-<input type="text" name="bookname"  id="searched_content" title="书名" />
-<input type="submit" value="Go" class="button" title="gogogo" onclick="bquery()" />
+<input type="text" name="bookname"  id="searched_content" title="书名" onkeypress="if(event.keyCode==13) {search.click();return false;}"/>
+<input type="submit" value="Go" class="button" id="search" title="gogogo" onclick="bquery()" />
 <div id="resTbl" class="table-b"></div>
 <script type="text/javascript">
 function bquery() {
