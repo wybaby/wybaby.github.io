@@ -22,11 +22,15 @@
 <div id="resTbl" class="table-b"></div>
 <script type="text/javascript">
 function bquery() {
+    var searchname = trimStr(document.getElementById('searched_content').value);
+    if (searchname.length<=0) {
+        return;
+    }
+
 Papa.parse("https://wybaby.github.io/book/book.txt", {
 	download: true,
 	complete: function(results) {
 		console.log(results);
-        var searchname = trimStr(document.getElementById('searched_content').value);
         var found = false;
         var tblStr = "<table border='0'>";
         for (var i=0; i<results.data.length; ++i) {
