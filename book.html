@@ -41,21 +41,22 @@ Papa.parse("https://wybaby.github.io/book/book.txt", {
 //            console.log(b[3]);
             if (b[3].indexOf(searchname)>=0) {
                 found = true;
-                tblStr += "<tr><td class='table-x'>" + "编号" + "</td><td>" + b[1] + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "书名" + "</td><td>" + b[3] + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "作者" + "</td><td>" + b[5] + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "ISBN" + "</td><td>" + "<a target='_blank' href='https://book.douban.com/subject_search?search_text=" +b[13] + "'>" + b[13] + "</a>" + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "状态" + "</td><td>" + b[2] + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "出版日期" + "</td><td>" + b[7] + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "购买日期" + "</td><td>" + b[16] + "</td></tr>";
-                tblStr += "<tr><td class='table-x'>" + "阅读日期" + "</td><td>" + b[17] + "</td></tr>";
-                tblStr += "<tr><td>----------</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "编号" + "</td><td>" + b[1] + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "书名" + "</td><td>" + b[3] + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "作者" + "</td><td>" + b[5] + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "ISBN" + "</td><td>" + "<a target='_blank' href='https://book.douban.com/subject_search?search_text=" +b[13] + "'>" + b[13] + "</a>" + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "状态" + "</td><td>" + b[2] + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "出版日期" + "</td><td>" + b[7] + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "购买日期" + "</td><td>" + b[16] + "</td></tr>";
+                $tblStr += "<tr><td class='table-x'>" + "阅读日期" + "</td><td>" + b[17] + "</td></tr>";
+                $tblStr += "<tr><td>----------</td></tr>";
             }
         }
+		$tblStr += "</table>";
         if (found==false) {
             $("#resTbl").html("<p>没买过</p>");
         } else {
-            $("#resTbl").html(tblStr);
+            $("#resTbl").html($tblStr);
         }
 
 	}
