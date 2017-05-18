@@ -32,7 +32,7 @@ Papa.parse("https://wybaby.github.io/book/book.txt", {
 	complete: function(results) {
 		console.log(results);
         var found = false;
-        var tblStr = "<table border='0'>";
+        var $tblStr = "<table border='0'>";
         for (var i=0; i<results.data.length; ++i) {
             var b = results.data[i];
             if (b.length<20) {
