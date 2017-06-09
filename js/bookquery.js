@@ -30,12 +30,15 @@ Papa.parse("https://wybaby.github.io/book/book.txt", {
                 $tblStr += "<tr><td class='table-x'>" + "状态" + "</td><td>" + b[2] + "</td></tr>";
                 $tblStr += "<tr><td class='table-x'>" + "出版日期" + "</td><td>" + b[7] + "</td></tr>";
                 $tblStr += "<tr><td class='table-x'>" + "购买日期" + "</td><td>" + b[16] + "</td></tr>";
-				if (b[17].length>0) {
-					$tblStr += "<tr><td class='table-x'>" + "阅读日期" + "</td><td>" + b[17] + "</td></tr>";
-				};
-				if (b[18].length>0) {
-					$tblStr += "<tr><td class='table-x'>" + "阅读日期" + "</td><td>" + b[18] + "</td></tr>";
-				};
+		if (b[17].length>0) {
+			$tblStr += "<tr><td class='table-x'>" + "阅读日期" + "</td><td>" + b[17] + "</td></tr>";
+		};
+		if (b[18].length>0) {
+			$tblStr += "<tr><td class='table-x'>" + "" + "</td><td>" + b[18] + "</td></tr>";
+		};
+		if (b[19].length>0) {
+			$tblStr += "<tr><td class='table-x'>" + "" + "</td><td>" + b[19] + "</td></tr>";
+		};
                 $tblStr += "<tr><td>----------</td></tr>";
             }
         }
