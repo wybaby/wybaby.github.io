@@ -16,7 +16,8 @@
 
 </head>
 
-<body>
+<body onload="loading();">
+<div id="stsTbl" class="table-b"></div>
 <input type="text" name="bookname"  id="searched_content" title="书名" onkeypress="if(event.keyCode==13) {search.click();return false;}"/>
 <input type="submit" value="Go" class="button" id="search" title="gogogo" onclick="bquery()" />
 <div id="resTbl" class="table-b"></div>
